@@ -39,7 +39,7 @@ pipeline{
                 echo '------------>Checkout desde Git Microservicio<------------'
                 //Esta opción se usa para el checkout sencillo de un microservicio
                 gitCheckout(
-                    urlProject:'',
+                    urlProject:'https://github.com/je-west/alquilerCarrosJE.git',
                     branchProject: '${BRANCH_NAME}', 
                 )
 
