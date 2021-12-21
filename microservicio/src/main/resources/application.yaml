@@ -1,0 +1,21 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd:ceiba}
+      algorithm: PBEWithMD5AndDES
+
+server:
+   port: 
+   servlet:
+      context-path: /alquilerVehiculos
+      session:
+         timeout: 21600s
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:mysql://localhost:3306/alquilerbd?allowPublicKeyRetrieval=true&useSSL=true
+      username: root
+      password: ENC(P+g6COvLWPp5T2Vb2f6Gtg==)
+      hikari:
+         poolName: pool
