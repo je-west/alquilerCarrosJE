@@ -12,7 +12,8 @@ pipeline{
     }
 
     environment {
-        PROJECT_PATH_BACK = 'alquilerVehiculos'
+        PROJECT_PATH_BACK = 'alquilerVehiculos',
+        BRANCH_NAME = 'main'
     }
 
     triggers {
