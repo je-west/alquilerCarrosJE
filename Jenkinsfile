@@ -33,29 +33,23 @@ pipeline{
             password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a passwor')
      }*/
 
-    stages{
-        stage('Checkout') {
-            steps {
-                echo '------------>Checkout desde Git Microservicio<------------'
-                //Esta opción se usa para el checkout sencillo de un microservicio
-                gitCheckout(
-                    urlProject:'https://github.com/je-west/alquilerCarrosJE.git',
-                    branchProject: '${BRANCH_NAME}', 
-                )
-
-                //Esta opción se usa cuando el comun está centralizado para varios microservicios
-                /*gitCheckoutWithComun(
-                    urlProject:'git@git.ceiba.com.co:ceiba_legos/revision-blocks.git',
-                    branchProject: '${BRANCH_NAME}',
-                    urlComun: 'git@git.ceiba.com.co:ceiba_legos/comun.git'
-                )*/
-
-                dir("${PROJECT_PATH_BACK}"){
-                    sh 'chmod +x ./gradlew'
-                    sh './gradlew clean'
+    stage('Checkout') {
+                steps {
+                    echo '------------>Checkout<------------'
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/main']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [],
+                        gitTool: 'Default',
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                            credentialsId: 'GitHub_jhon.carmona',
+                            url:'https://github.com/je-west/alquilerVehiculos'
+                        ]]
+                    ])
                 }
             }
-        }
 
         stage('Compilacion y Test Unitarios'){
             // El "parallel" es si vamos a correr los test del frontend en paralelo con los test de backend, se configura en otro stage dentro de parallel
