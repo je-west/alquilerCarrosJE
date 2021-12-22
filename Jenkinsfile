@@ -3,7 +3,10 @@ pipeline{
 	// any -> tomaria slave 5 u 8
 	// Para mobile se debe especificar el slave -> {label 'Slave_Mac'}
 	// Para proyectos de arus se debe tomar el slave 6 o 7 -> {label 'Slave6'} o {label 'Slave7'}
-    agent any
+    agent {
+      label 'Slave_Induccion'
+    }
+
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
