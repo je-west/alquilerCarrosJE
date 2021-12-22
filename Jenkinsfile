@@ -54,7 +54,7 @@ pipeline{
 
         stage('Compilacion y Test Unitarios'){
             // El "parallel" es si vamos a correr los test del frontend en paralelo con los test de backend, se configura en otro stage dentro de parallel
-            //parallel {
+            parallel {
                 stage('Test- Backend'){
                     steps {
                         echo '------------>Test Backend<------------'
@@ -79,7 +79,7 @@ pipeline{
                     }
                 }
                 */
-            //}
+            }
         }
 		
 		stage('Static Code Analysis') {
