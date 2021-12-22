@@ -64,10 +64,10 @@ pipeline{
                             sh './gradlew --stacktrace test'
                         }
                     }
-                    post{
-                        always {
-                            junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
-                        }
+                    //post{
+                    //    always {
+                    //        junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
+                    //    }
                     //}
                 //}
                 /*
