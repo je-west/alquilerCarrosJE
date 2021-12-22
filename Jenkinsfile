@@ -33,12 +33,12 @@ pipeline{
             password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a passwor')
      }*/
 
-    stage('Checkout') {
+        stage('Checkout') {
                 steps {
                     echo '------------>Checkout<------------'
                     checkout([
                         $class: 'GitSCM',
-                        branches: [[name: '*/main']],
+                        branches: [[name: '*/master']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
                         gitTool: 'Default',
