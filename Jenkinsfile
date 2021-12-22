@@ -61,14 +61,15 @@ pipeline{
                         echo '------------>Test Backend<------------'
                         dir("${PROJECT_PATH_BACK}"){
                             sh 'chmod +x gradlew'
+                            sh './gradlew clean'
                             sh './gradlew --stacktrace test'
                         }
                     }
-                    //post{
-                    //    always {
-                    //        junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
-                    //    }
-                    //}
+                    post{
+                        always {
+                            junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
+                        }
+                    }
                 //}
                 /*
                 stage('Test- Frontend'){
@@ -118,9 +119,7 @@ pipeline{
         success {
             echo '---This will run only if successful---'
             //updateGitlabCommitStatus name: 'IC Jenkins', state: 'success'
-            echo 'This will run only if successful'
             //junit 'build/test-results/test/*.xml'
-            //junit '/microservicio/dominio/build/test-results/test/*.xml'
 
 
 
