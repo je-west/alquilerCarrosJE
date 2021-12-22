@@ -60,6 +60,7 @@ pipeline{
                     steps {
                         echo '------------>Test Backend<------------'
                         dir("${PROJECT_PATH_BACK}"){
+                            sh './gradlew build -x clean'
                             sh 'chmod +x gradlew'
                             sh './gradlew --stacktrace test'
                         }
