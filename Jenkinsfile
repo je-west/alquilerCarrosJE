@@ -33,23 +33,24 @@ pipeline{
             password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a passwor')
      }*/
 
-        stage('Checkout') {
-                steps {
-                    echo '------------>Checkout<------------'
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/master']],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [],
-                        gitTool: 'Default',
-                        submoduleCfg: [],
-                        userRemoteConfigs: [[
-                            credentialsId: 'GitHub_jhon.carmona',
-                            url:'https://github.com/je-west/alquilerVehiculos'
-                        ]]
-                    ])
-                }
-            }
+     stages{
+             stage('Checkout') {
+                 steps {
+                     echo '------------>Checkout<------------'
+                         checkout([
+                             $class: 'GitSCM',
+                             branches: [[name: '*/main']],
+                             doGenerateSubmoduleConfigurations: false,
+                             extensions: [],
+                             gitTool: 'Default',
+                             submoduleCfg: [],
+                             userRemoteConfigs: [[
+                                 credentialsId: 'GitHub_kmiloramirez',
+                                 url:'https://github.com/kmiloramirez/ADNHOSTAL'
+                             ]]
+                         ])
+                 }
+             }
 
         stage('Compilacion y Test Unitarios'){
             // El "parallel" es si vamos a correr los test del frontend en paralelo con los test de backend, se configura en otro stage dentro de parallel
