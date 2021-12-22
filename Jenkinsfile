@@ -56,7 +56,7 @@ pipeline{
         stage('Compilacion y Test Unitarios'){
             // El "parallel" es si vamos a correr los test del frontend en paralelo con los test de backend, se configura en otro stage dentro de parallel
             //parallel {
-                stage('Test- Backend'){
+                //stage('Test- Backend'){
                     steps {
                         echo '------------>Test Backend<------------'
                         dir("${PROJECT_PATH_BACK}"){
@@ -69,7 +69,7 @@ pipeline{
                             junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
                         }
                     }
-                }
+                //}
                 /*
                 stage('Test- Frontend'){
                     steps {
