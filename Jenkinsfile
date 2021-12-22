@@ -68,7 +68,7 @@ pipeline{
                     }
                     post{
                         always {
-                            junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
+                            junit allowEmptyResults: true , testResults:'**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
                         }
                     }
                 }
