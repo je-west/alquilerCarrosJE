@@ -68,7 +68,7 @@ pipeline{
                             junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
                         }
                     }
-                }
+                //}
                 /*
                 stage('Test- Frontend'){
                     steps {
@@ -79,7 +79,7 @@ pipeline{
                     }
                 }
                 */
-            //}
+            }
         }
 		
 		stage('Static Code Analysis') {
