@@ -1,11 +1,9 @@
-@Library('ceiba-jenkins-library@master') _
+@Library('ceiba-jenkins-library') _
 pipeline{
 	// any -> tomaria slave 5 u 8
 	// Para mobile se debe especificar el slave -> {label 'Slave_Mac'}
 	// Para proyectos de arus se debe tomar el slave 6 o 7 -> {label 'Slave6'} o {label 'Slave7'}
-    agent {
-      label 'Slave_Induccion'
-    }
+    agent any
 
 
     options {
@@ -15,7 +13,7 @@ pipeline{
     }
 
     environment {
-        PROJECT_PATH_BACK = 'alquilerVehiculos'
+        PROJECT_PATH_BACK = 'microservicio'
     }
 
     triggers {
@@ -68,7 +66,7 @@ pipeline{
                     }
                     post{
                         always {
-                            junit allowEmptyResults: true , testResults:'**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
+                            junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
                         }
                     }
                 }
