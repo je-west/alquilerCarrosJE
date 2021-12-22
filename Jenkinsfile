@@ -45,8 +45,8 @@ pipeline{
                              gitTool: 'Default',
                              submoduleCfg: [],
                              userRemoteConfigs: [[
-                                 credentialsId: 'GitHub_kmiloramirez',
-                                 url:'https://github.com/kmiloramirez/ADNHOSTAL'
+                                 credentialsId: 'GitHub_je-west',
+                                 url:'https://github.com/je-west/alquilerCarrosJE'
                              ]]
                          ])
                  }
