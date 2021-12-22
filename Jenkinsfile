@@ -65,11 +65,11 @@ pipeline{
                             sh './gradlew --stacktrace test'
                         }
                     }
-                    post{
-                        always {
-                            junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
-                        }
-                    }
+                    //post{
+                    //    always {
+                    //        junit '**/build/test-results/test/*.xml' //Configuración de los reportes de JUnit
+                    //    }
+                    //}
                 //}
                 /*
                 stage('Test- Frontend'){
@@ -119,9 +119,7 @@ pipeline{
         success {
             echo '---This will run only if successful---'
             //updateGitlabCommitStatus name: 'IC Jenkins', state: 'success'
-            //junit 'build/test-results/test/*.xml'
-
-
+            junit '**/build/test-results/test/*.xml'
 
         }
     }
