@@ -119,7 +119,11 @@ pipeline{
             echo '---This will run only if successful---'
             //updateGitlabCommitStatus name: 'IC Jenkins', state: 'success'
             echo 'This will run only if successful'
-            junit 'build/test-results/test/*.xml'
+            //junit 'build/test-results/test/*.xml'
+            junit '/microservicio/dominio/build/test-results/test/*.xml'
+
+            
+
         }
     }
 }
