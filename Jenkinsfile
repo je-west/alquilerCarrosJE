@@ -85,8 +85,8 @@ pipeline{
 		
 		stage('Static Code Analysis') {
 			steps{
-				sonarqubeMasQualityGates(sonarKey:'', 
-				sonarName:'', 
+				sonarqubeMasQualityGates(sonarKey:' CeibaADN-alquilerVehiculos(jhon.carmona)',
+				sonarName:'co.com.ceiba.adn:alquilerVehiculos',
 				sonarPathProperties:'./sonar-project.properties')
 			}
 		}
