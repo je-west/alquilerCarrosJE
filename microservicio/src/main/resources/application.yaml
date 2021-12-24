@@ -4,7 +4,7 @@ jasypt:
       algorithm: PBEWithMD5AndDES
 
 server:
-   port: 
+   port: 8080
    servlet:
       context-path: /alquilerVehiculos
       session:

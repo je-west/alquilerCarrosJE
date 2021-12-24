@@ -51,6 +51,12 @@ public class ValidadorArgumento {
         }
     }
 
+    public static void validarLongitudcCaracteres(String valor,int longitud,String mensaje){
+        if(valor.length() == longitud){
+            throw new ExcepcionLongitudValor(mensaje);
+        }
+    }
+
     public static void validarMenor(LocalDateTime fechaInicial, LocalDateTime fechaFinal, String mensaje) {
         if (fechaInicial.toLocalDate().isAfter(fechaFinal.toLocalDate())) {
             throw new ExcepcionValorInvalido(mensaje);
