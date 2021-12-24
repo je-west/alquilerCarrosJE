@@ -27,16 +27,49 @@ public class ReservaTest {
         assertEquals(fechaCreacion, reserva.getFechaCreacion());
     }
 
-//    @Test
-//    void deberiaFallarConIdVehiculo() {
-//        //Arrange
-//        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conIdVehiculo(null).conId(1L);
-//        //act-assert
-//        BasePrueba.assertThrows(() -> {
-//                    reservaTestDataBuilder.build();
-//                },
-//                ExcepcionValorObligatorio.class, "Se debe ingresar el id del vehiculo");
-//    }
+    @Test
+    void deberiaFallarSinIdVehiculo() {
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conIdVehiculo(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar el id del vehiculo");
+    }
 
+    @Test
+    void deberiaFallarSinIdUsuario() {
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conIdUsuario(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar el id del usuario");
+    }
+
+
+    @Test
+    void deberiaFallarSinFechaInicioReserva() {
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaInicioReserva(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de inicio de la reserva");
+    }
+
+    @Test
+    void deberiaFallarSinFechaFinRerserva() {
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().confechaFinRerserva(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de fin de la reserva");
+    }
 
 }

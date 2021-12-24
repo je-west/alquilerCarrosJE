@@ -25,7 +25,7 @@ public class ReservaTestDataBuilder {
         this.id = id;
         return this;
     }
-    public ReservaTestDataBuilder conIdVehiculo(Long id){
+    public ReservaTestDataBuilder conIdVehiculo(Long idVehiculo){
         this.idVehiculo = idVehiculo;
         return this;
     }
