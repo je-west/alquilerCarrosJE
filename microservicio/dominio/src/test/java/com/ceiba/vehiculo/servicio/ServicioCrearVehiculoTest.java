@@ -3,7 +3,6 @@ package com.ceiba.vehiculo.servicio;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.VehiculoTestDataBuilder;
@@ -15,6 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearVehiculoTest {
 
+
+    @Test
+    @DisplayName("Deberia lanzar una exepecion cuando la longitud de la placa sea menor a 6")
+    void deberiaLanzarUnaExepcionCuandoLaLongitudDeLaClaveSeaMenorACuatro() {
+        // arrange
+        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conPlaca("ABC1234");
+        // act - assert
+        BasePrueba.assertThrows(vehiculoTestDataBuilder::build, ExcepcionLongitudValor.class, "La placa debe tern una longitud igual a 6");
+    }
 
     @Test
     @DisplayName("Deberia lanzar una exepcion cuando se valide la existencia del vehiculo")

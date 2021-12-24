@@ -19,8 +19,9 @@ public class Reserva {
     private Long idUsuario;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
+    private LocalDateTime fechaCreacion;
 
-    public Reserva(Long id, Long idVehiculo, Long idUsuario, LocalDateTime fechaInicioReservacion, LocalDateTime fechaFinRerservacion) {
+    public Reserva(Long id, Long idVehiculo, Long idUsuario, LocalDateTime fechaInicioReservacion, LocalDateTime fechaFinRerservacion, LocalDateTime fechaCreacion) {
         validarObligatorio(idVehiculo, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
         validarObligatorio(idUsuario, SE_DEBE_INGRESAR_EL_ID_USUARIO);
         validarObligatorio(fechaInicioReservacion, SE_DEBE_INGRESAR_LA_FECHA_INICIO_RESERVA);
@@ -31,5 +32,6 @@ public class Reserva {
         this.idUsuario = idUsuario;
         this.fechaInicioReserva = fechaInicioReservacion;
         this.fechaFinRerserva = fechaFinRerservacion;
+        this.fechaCreacion = fechaCreacion;
     }
 }

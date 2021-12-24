@@ -13,7 +13,8 @@ public class FabricaRerserva {
                 comandoReserva.getIdVehiculo(),
                 comandoReserva.getIdUsuario(),
                 comandoReserva.getFechaInicioReserva(),
-                comandoReserva.getFechaInicioReserva()
+                comandoReserva.getFechaInicioReserva(),
+                comandoReserva.getFechaCreacion()
         );
 
     }

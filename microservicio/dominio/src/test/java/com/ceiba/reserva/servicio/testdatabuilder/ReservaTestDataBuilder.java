@@ -1,7 +1,6 @@
 package com.ceiba.reserva.servicio.testdatabuilder;
 
 import com.ceiba.reserva.modelo.entidad.Reserva;
-import com.ceiba.usuario.modelo.entidad.Usuario;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +11,7 @@ public class ReservaTestDataBuilder {
     private Long idUsuario;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
+    private LocalDateTime fechaCreacion;
 
     public ReservaTestDataBuilder(){
         id = Long.parseLong("123456");
@@ -21,27 +21,36 @@ public class ReservaTestDataBuilder {
         fechaFinRerserva = LocalDateTime.now();
     }
 
-    public ReservaTestDataBuilder conIdVehiculo(){
+    public ReservaTestDataBuilder conId(Long id){
+        this.id = id;
+        return this;
+    }
+    public ReservaTestDataBuilder conIdVehiculo(Long id){
         this.idVehiculo = idVehiculo;
         return this;
     }
 
-    public ReservaTestDataBuilder conIdUsuario(){
+    public ReservaTestDataBuilder conIdUsuario(Long idUsuario){
         this.idUsuario = idUsuario;
         return this;
     }
 
-    public ReservaTestDataBuilder conFechaInicioReserva(){
+    public ReservaTestDataBuilder conFechaInicioReserva(LocalDateTime fechaInicioReserva){
         this.fechaInicioReserva = fechaInicioReserva;
         return this;
     }
 
-    public ReservaTestDataBuilder confechaFinRerserva(){
+    public ReservaTestDataBuilder confechaFinRerserva(LocalDateTime fechaFinRerserva){
         this.fechaFinRerserva = fechaFinRerserva;
         return this;
     }
 
+    public ReservaTestDataBuilder conFechaCreacion(LocalDateTime fechaCreacion){
+        this.fechaCreacion = fechaCreacion;
+        return this;
+    }
+
     public Reserva build() {
-        return new Reserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva);
+        return new Reserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva, fechaCreacion);
     }
 }

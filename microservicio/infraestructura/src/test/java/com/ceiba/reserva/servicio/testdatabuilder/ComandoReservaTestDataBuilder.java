@@ -11,6 +11,7 @@ public class ComandoReservaTestDataBuilder {
     private Long idUsuario;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
+    private LocalDateTime fechaCreacion;
 
     public ComandoReservaTestDataBuilder() {
         this.idVehiculo = Long.parseLong("123");
@@ -25,6 +26,6 @@ public class ComandoReservaTestDataBuilder {
     }
 
     public ComandoReserva build(){
-        return new ComandoReserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva);
+        return new ComandoReserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva, fechaCreacion);
     }
 }

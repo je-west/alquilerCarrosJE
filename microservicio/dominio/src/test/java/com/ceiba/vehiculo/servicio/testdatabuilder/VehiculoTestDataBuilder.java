@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.servicio.testdatabuilder;
 
-import com.ceiba.usuario.modelo.entidad.Usuario;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 
 import java.time.LocalDateTime;
@@ -21,22 +20,27 @@ public class VehiculoTestDataBuilder {
         this.fechaCreacion = LocalDateTime.now();;
     }
 
-    public VehiculoTestDataBuilder conPlaca(){
+    public VehiculoTestDataBuilder conId(Long id){
+        this.id = id;
+        return this;
+    }
+
+    public VehiculoTestDataBuilder conPlaca(String placa){
         this.placa = placa;
         return this;
     }
 
-    public VehiculoTestDataBuilder conMarca(){
+    public VehiculoTestDataBuilder conMarca(String marca){
         this.marca = marca;
         return this;
     }
 
-    public VehiculoTestDataBuilder conEstado(){
+    public VehiculoTestDataBuilder conEstado(String estado){
         this.estado = estado;
         return this;
     }
 
-    public VehiculoTestDataBuilder conFechaCreacion(){
+    public VehiculoTestDataBuilder conFechaCreacion(LocalDateTime fechaCreacion){
         this.fechaCreacion = fechaCreacion;
         return this;
     }

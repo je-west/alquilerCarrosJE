@@ -30,7 +30,6 @@ public class UsuarioTest {
 
     @Test
     void deberiaFallarSinNombreDeUsuario() {
-
         //Arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNombre(null).conId(1L);
         //act-assert
