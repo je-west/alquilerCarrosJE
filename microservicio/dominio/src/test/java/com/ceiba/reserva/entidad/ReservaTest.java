@@ -24,9 +24,9 @@ public class ReservaTest {
         assertEquals(1, reserva.getId());
         assertEquals(123456, reserva.getIdUsuario());
         assertEquals(123456, reserva.getIdVehiculo());
-//        assertEquals(fechaHoy, reserva.getFechaCreacion());
-//        assertEquals(fechaHoy, reserva.getFechaInicioReserva());
-//        assertEquals(fechaHoy, reserva.getFechaFinRerserva());
+        //assertEquals(fechaHoy, reserva.getFechaCreacion());
+        assertEquals(fechaHoy, reserva.getFechaInicioReserva());
+        assertEquals(fechaHoy, reserva.getFechaFinRerserva());
     }
 
     @Test
