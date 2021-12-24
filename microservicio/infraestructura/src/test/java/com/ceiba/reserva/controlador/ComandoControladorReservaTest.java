@@ -1,7 +1,10 @@
-package com.ceiba.vehiculo.controlador;
+package com.ceiba.reserva.controlador;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.reserva.comando.ComandoReserva;
+import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 import com.ceiba.vehiculo.comando.ComandoVehiculo;
+import com.ceiba.vehiculo.controlador.ComandoControladorVehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.ComandoVehiculoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -20,10 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(ComandoControladorVehiculo.class)
+@WebMvcTest(ComandoControladorReserva.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class ComandoControladorVehiculoTest {
+public class ComandoControladorReservaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -31,15 +34,16 @@ public class ComandoControladorVehiculoTest {
     @Autowired
     private MockMvc mocMvc;
 
+
     @Test
-    @DisplayName("Deberia crear un vehiculo")
-    void deberiaCrearUnVehiculo() throws Exception{
+    @DisplayName("Deberia crear una reserva")
+    void deberiaCrearUnUsuario() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(post("/vehiculo")
+        mocMvc.perform(post("/reserva")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(vehiculo)))
+                        .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk());
                 //.andExpect(content().json("{'valor': 123456}"));
     }

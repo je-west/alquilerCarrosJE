@@ -40,9 +40,9 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
     }
 
     @Override
-    public boolean existe(String nombre) {
+    public boolean existe(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("placa", nombre);
+        paramSource.addValue("id", id);
 
         //return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
         return false;

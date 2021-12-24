@@ -22,7 +22,6 @@ public class ManejadorCrearVehiculo implements ManejadorComandoRespuesta<Comando
     public ComandoRespuesta<Long> ejecutar(ComandoVehiculo comandoVehiculo){
         Vehiculo vehiculo = this.fabricaVehiculo.crear(comandoVehiculo);
         return new ComandoRespuesta<>(this.servicioCrearVehiculo.ejecutar(vehiculo));
-
     }
 
 }

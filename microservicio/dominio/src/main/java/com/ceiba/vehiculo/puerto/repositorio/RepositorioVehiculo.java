@@ -24,10 +24,10 @@ public interface RepositorioVehiculo {
 
     /**
      * Permite validar si existe un vehiculo con un nombre
-     * @param nombre
+     * @param id
      * @return si existe o no
      */
-    boolean existe(String nombre);
+    boolean existe(Long id);
 
     /**
      * Permite validar si existe un vehiculo con un nombre excluyendo un id
