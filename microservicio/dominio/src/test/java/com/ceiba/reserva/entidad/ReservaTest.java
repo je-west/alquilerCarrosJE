@@ -17,14 +17,16 @@ public class ReservaTest {
     @DisplayName("Deberia crear correctamente la reserva")
     void deberiaCrearCorrectamenteLaReserva() {
         // arrange
-        LocalDateTime fechaCreacion = LocalDateTime.now();
+        LocalDateTime fechaHoy= LocalDateTime.now();
         //act
-        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
+        Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         //assert
         assertEquals(1, reserva.getId());
         assertEquals(123456, reserva.getIdUsuario());
         assertEquals(123456, reserva.getIdVehiculo());
-        assertEquals(fechaCreacion, reserva.getFechaCreacion());
+        assertEquals(fechaHoy, reserva.getFechaCreacion());
+        assertEquals(fechaHoy, reserva.getFechaInicioReserva());
+        assertEquals(fechaHoy, reserva.getFechaFinRerserva());
     }
 
     @Test

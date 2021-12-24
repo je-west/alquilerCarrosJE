@@ -19,6 +19,7 @@ public class ReservaTestDataBuilder {
         idUsuario = Long.parseLong("123456");
         fechaInicioReserva = LocalDateTime.now();
         fechaFinRerserva = LocalDateTime.now();
+        fechaCreacion = LocalDateTime.now();
     }
 
     public ReservaTestDataBuilder conId(Long id){
