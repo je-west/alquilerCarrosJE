@@ -17,7 +17,7 @@ public class ServicioCrearVehiculoTest {
 
     @Test
     @DisplayName("Deberia lanzar una exepecion cuando la longitud de la placa sea menor a 6")
-    void deberiaLanzarUnaExepcionCuandoLaLongitudDeLaClaveSeaMenorACuatro() {
+    void deberiaLanzarUnaExepcionCuandoLaLongitudDeLaPlacaSeaMenorACuatro() {
         // arrange
         VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conPlaca("ABC1234");
         // act - assert

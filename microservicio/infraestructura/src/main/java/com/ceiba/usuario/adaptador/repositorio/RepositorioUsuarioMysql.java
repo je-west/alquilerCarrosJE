@@ -47,7 +47,7 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
     @Override
     public boolean existe(String nombre) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("nombre", nombre);
+        paramSource.addValue("cedula", nombre);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
     }

@@ -1,1 +1,1 @@
-insert into usuario(id, nombre,clave,fecha_creacion) values(1,'test','1234',now())
+insert into usuario(id, nombre, cedula, telefono, fecha_creacion) values(1,'test','12345','12345',now())

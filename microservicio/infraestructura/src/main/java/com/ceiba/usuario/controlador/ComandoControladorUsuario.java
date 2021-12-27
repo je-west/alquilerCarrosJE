@@ -43,7 +43,7 @@ public class ComandoControladorUsuario {
 
 	@PutMapping(value="/{id}")
 	@ApiOperation("Actualizar Usuario")
-	public void actualizar(@RequestBody ComandoUsuario comandoUsuario,@PathVariable Long id) {
+	public void actualizar(@RequestBody ComandoUsuario comandoUsuario, @PathVariable Long id) {
 		comandoUsuario.setId(id);
 		manejadorActualizarUsuario.ejecutar(comandoUsuario);
 	}

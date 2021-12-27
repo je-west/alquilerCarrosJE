@@ -22,9 +22,9 @@ public class UsuarioTest {
         //act
         Usuario usuario = new UsuarioTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
         //assert
-        assertEquals(1, usuario.getId());
         assertEquals("1234", usuario.getNombre());
-        assertEquals("1234", usuario.getClave());
+        assertEquals("12345", usuario.getCedula());
+        assertEquals("12345", usuario.getTelefono());
         assertEquals(fechaCreacion, usuario.getFechaCreacion());
     }
 
@@ -40,27 +40,27 @@ public class UsuarioTest {
     }
 
     @Test
-    void deberiaFallarSinClave() {
+    void deberiaFallarSinCedula() {
 
         //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave(null).conId(1L);
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conCedula(null).conId(1L);
         //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
-                ExcepcionValorObligatorio.class, "Se debe ingresar la clave");
+                ExcepcionValorObligatorio.class, "Se debe ingresar la cedula");
     }
 
     @Test
-    void deberiaFallarSinTamanioClave() {
+    void deberiaFallarSinLongitudMaximaCedula() {
 
         //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave("123").conId(1L);
+        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conCedula("1234567891234").conId(1L);
         //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
-                ExcepcionLongitudValor.class, "La clave debe tener una longitud mayor o igual a 4");
+                ExcepcionLongitudValor.class, "La cedula debe tener una longitud maxima de 12");
     }
 
     @Test

@@ -100,4 +100,10 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+
+    public static void validarLongitudMaxima(Object valor, int longitudMaxima, String mensaje) {
+        if (valor.toString().length() > longitudMaxima) {
+            throw new ExcepcionLongitudValor(mensaje);
+        }
+    }
 }

@@ -8,17 +8,25 @@ public class UsuarioTestDataBuilder {
 
     private Long id;
     private String nombreUsuario;
-    private String clave;
+    private String cedula;
+    private String telefono;
     private LocalDateTime fecha;
 
     public UsuarioTestDataBuilder() {
+        Long id = 1L;
         nombreUsuario = "1234";
-        clave = "1234";
+        cedula = "12345";
+        telefono = "12345";
         fecha = LocalDateTime.now();
     }
 
-    public UsuarioTestDataBuilder conClave(String clave) {
-        this.clave = clave;
+    public UsuarioTestDataBuilder conCedula(String cedula) {
+        this.cedula = cedula;
+        return this;
+    }
+
+    public UsuarioTestDataBuilder conTelefono(String telefono) {
+        this.telefono = telefono;
         return this;
     }
 
@@ -38,6 +46,6 @@ public class UsuarioTestDataBuilder {
     }
 
     public Usuario build() {
-        return new Usuario(id,nombreUsuario, clave,fecha);
+        return new Usuario(id, nombreUsuario, cedula, telefono,fecha);
     }
 }

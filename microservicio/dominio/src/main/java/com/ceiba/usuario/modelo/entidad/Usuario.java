@@ -5,33 +5,34 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarLongitud;
-import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Usuario {
 
     private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = "Se debe ingresar la fecha de creación";
-    private static final String LA_CLAVE_DEBE_TENER_UNA_LONGITUD_MAYOR_O_IGUAL_A = "La clave debe tener una longitud mayor o igual a %s";
-    private static final String SE_DEBE_INGRESAR_LA_CLAVE = "Se debe ingresar la clave";
+    private static final String LA_CEDULA_DEBE_TENER_UNA_LONGITUD_MAXIMA = "La cedula debe tener una longitud maxima de %s";
+    private static final String SE_DEBE_INGRESAR_LA_CEDULA = "Se debe ingresar la cedula";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO = "Se debe ingresar el nombre de usuario";
 
-    private static final int LONGITUD_MINIMA_CLAVE = 4;
+    private static final int LONGITUD_MAXIMA_CEDULA = 12;
 
     private Long id;
     private String nombre;
-    private String clave;
+    private String cedula;
+    private String telefono;
     private LocalDateTime fechaCreacion;
 
-    public Usuario(Long id,String nombre, String clave,LocalDateTime fechaCreacion) {
+    public Usuario(Long id, String nombre, String cedula, String telefono, LocalDateTime fechaCreacion) {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
-        validarObligatorio(clave, SE_DEBE_INGRESAR_LA_CLAVE);
-        validarLongitud(clave, LONGITUD_MINIMA_CLAVE, String.format(LA_CLAVE_DEBE_TENER_UNA_LONGITUD_MAYOR_O_IGUAL_A,LONGITUD_MINIMA_CLAVE));
+        validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA);
+        validarLongitudMaxima(cedula, LONGITUD_MAXIMA_CEDULA, String.format(LA_CEDULA_DEBE_TENER_UNA_LONGITUD_MAXIMA, LONGITUD_MAXIMA_CEDULA));
         validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);
 
         this.id = id;
         this.nombre = nombre;
-        this.clave = clave;
+        this.cedula = cedula;
+        this.telefono = telefono;
         this.fechaCreacion = fechaCreacion;
     }
 

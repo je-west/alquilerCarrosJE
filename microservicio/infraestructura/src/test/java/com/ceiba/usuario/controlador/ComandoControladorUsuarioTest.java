@@ -49,7 +49,7 @@ class ComandoControladorUsuarioTest {
     void deberiaActualizarUnUsuario() throws Exception{
         // arrange
         Long id = 1L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().conID(id).build();
         // act - assert
         mocMvc.perform(put("/usuarios/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
