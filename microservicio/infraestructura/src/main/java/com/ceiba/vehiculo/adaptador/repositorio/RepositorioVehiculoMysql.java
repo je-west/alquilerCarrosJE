@@ -12,9 +12,9 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-//    @SqlStatement(namespace="vehiculo", value="crear")
-//    private static String sqlCrear;
-//
+    @SqlStatement(namespace="vehiculo", value="crear")
+    private static String sqlCrear;
+
 //
 //    @SqlStatement(namespace="vehiculo", value="existe")
 //    private static String sqlExiste;
@@ -25,8 +25,8 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
 
     @Override
     public Long crear(Vehiculo vehiculo) {
-//      return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear);
-        return Long.parseLong("123456");
+       return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear);
+        //return Long.parseLong("123456");
     }
 
     @Override

@@ -1,18 +1,13 @@
-package com.ceiba.vehiculo.comando;
-
-import java.time.LocalDateTime;
+package com.ceiba.vehiculo.modelo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class ComandoVehiculo {
-
+public class DtoVehiculo {
     private Long id;
     private String placa;
     private String marca;
@@ -20,5 +15,4 @@ public class ComandoVehiculo {
     private String estado;
     private Double precioDia;
     private LocalDateTime fechaCreacion;
-
 }

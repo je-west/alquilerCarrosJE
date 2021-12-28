@@ -4,6 +4,8 @@ import com.ceiba.vehiculo.comando.ComandoVehiculo;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class FabricaVehiculo {
 
@@ -12,8 +14,10 @@ public class FabricaVehiculo {
                 comandoVehiculo.getId(),
                 comandoVehiculo.getPlaca(),
                 comandoVehiculo.getMarca(),
+                comandoVehiculo.getReferencia(),
                 comandoVehiculo.getEstado(),
-                comandoVehiculo.getFechaCreacion()
+                comandoVehiculo.getPrecioDia(),
+                LocalDateTime.now()
         );
     }
 }

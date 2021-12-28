@@ -9,13 +9,17 @@ public class VehiculoTestDataBuilder {
     private Long id;
     private String placa;
     private String marca;
+    private String referencia;
     private String estado;
+    private Double precioDia;
     private LocalDateTime fechaCreacion;
 
     public VehiculoTestDataBuilder() {
         this.id = Long.parseLong("123456");
         this.placa = "ABC123";
         this.marca = "ABCMarca";
+        this.referencia = "ABCReferencia";
+        this.precioDia = 100000.00;
         this.estado = "Disponible";
         this.fechaCreacion = LocalDateTime.now();;
     }
@@ -46,7 +50,7 @@ public class VehiculoTestDataBuilder {
     }
 
     public Vehiculo build() {
-        return new Vehiculo(id, placa, marca, estado,fechaCreacion);
+        return new Vehiculo(id, placa, marca, referencia, estado, precioDia,fechaCreacion);
     }
 
 }

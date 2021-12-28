@@ -10,13 +10,17 @@ public class ComandoVehiculoTestDataBuilder {
     private Long id;
     private String placa;
     private String marca;
+    private String referencia;
     private String estado;
+    private Double precioDia;
     private LocalDateTime fechaCreacion;
 
     public ComandoVehiculoTestDataBuilder() {
         placa = UUID.randomUUID().toString();
         marca = UUID.randomUUID().toString();
+        referencia = UUID.randomUUID().toString();;
         estado = UUID.randomUUID().toString();
+        precioDia = 100000.00;
         fechaCreacion = LocalDateTime.now();
     }
 
@@ -26,6 +30,6 @@ public class ComandoVehiculoTestDataBuilder {
     }
 
     public ComandoVehiculo build(){
-        return new ComandoVehiculo(id, placa, marca, estado, fechaCreacion);
+        return new ComandoVehiculo(id, placa, marca, referencia, estado, precioDia,fechaCreacion);
     }
 }
