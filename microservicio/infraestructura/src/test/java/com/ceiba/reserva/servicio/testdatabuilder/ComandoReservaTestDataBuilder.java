@@ -9,13 +9,18 @@ public class ComandoReservaTestDataBuilder {
     private Long id;
     private Long idVehiculo;
     private Long idUsuario;
+    private Double precioTotalReservaCOP;
+    private Double precioTotalReservaUS;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
     private LocalDateTime fechaCreacion;
 
     public ComandoReservaTestDataBuilder() {
-        this.idVehiculo = Long.parseLong("123");
-        this.idUsuario = Long.parseLong("321");
+        this.id = 1L;
+        this.idVehiculo = Long.parseLong("1");
+        this.idUsuario = Long.parseLong("1");
+        this.precioTotalReservaCOP = 400000.00;
+        this.precioTotalReservaUS = 200.00;
         this.fechaInicioReserva = LocalDateTime.now();;
         this.fechaFinRerserva = LocalDateTime.now();;
     }
@@ -26,6 +31,6 @@ public class ComandoReservaTestDataBuilder {
     }
 
     public ComandoReserva build(){
-        return new ComandoReserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva, fechaCreacion);
+        return new ComandoReserva(id, idVehiculo, idUsuario, precioTotalReservaCOP, precioTotalReservaUS,fechaInicioReserva, fechaFinRerserva, fechaCreacion);
     }
 }

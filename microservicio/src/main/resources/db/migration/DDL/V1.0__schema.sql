@@ -17,3 +17,17 @@ create table vehiculo (
  fecha_creacion datetime null,
  primary key (id)
 );
+
+create table reserva (
+ id int(11) not null auto_increment,
+ vehiculo_id int(11) not null,
+ usuario_id int(11) not null,
+ precio_total_reserva_cop double,
+ precio_total_reserva_us double,
+ fecha_inicio_reserva date not null,
+ fecha_fin_rerserva date not null,
+ fecha_creacion datetime null,
+ primary key (id),
+ foreign key (vehiculo_id) REFERENCES vehiculo(id),
+ foreign key (usuario_id) REFERENCES usuario(id)
+);

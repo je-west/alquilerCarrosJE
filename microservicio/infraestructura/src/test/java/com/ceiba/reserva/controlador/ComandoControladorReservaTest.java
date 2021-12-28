@@ -37,7 +37,7 @@ public class ComandoControladorReservaTest {
 
     @Test
     @DisplayName("Deberia crear una reserva")
-    void deberiaCrearUnUsuario() throws Exception{
+    void deberiaCrearUnaReserva() throws Exception{
         // arrange
         ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
         // act - assert

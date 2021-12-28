@@ -9,6 +9,8 @@ public class ReservaTestDataBuilder {
     private Long id;
     private Long idVehiculo;
     private Long idUsuario;
+    private Double precioTotalReservaCOP;
+    private Double precioTotalReservaUS;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
     private LocalDateTime fechaCreacion;
@@ -17,6 +19,7 @@ public class ReservaTestDataBuilder {
         id = Long.parseLong("123456");
         idVehiculo = Long.parseLong("123456");
         idUsuario = Long.parseLong("123456");
+
         fechaInicioReserva = LocalDateTime.now();
         fechaFinRerserva = LocalDateTime.now();
         fechaCreacion = LocalDateTime.now();
@@ -52,6 +55,6 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build() {
-        return new Reserva(id, idVehiculo, idUsuario, fechaInicioReserva, fechaFinRerserva, fechaCreacion);
+        return new Reserva(id, idVehiculo, idUsuario, precioTotalReservaCOP, precioTotalReservaUS,fechaInicioReserva, fechaFinRerserva, fechaCreacion);
     }
 }

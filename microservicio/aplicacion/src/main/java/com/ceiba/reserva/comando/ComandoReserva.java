@@ -16,6 +16,8 @@ public class ComandoReserva {
     private Long id;
     private Long idVehiculo;
     private Long idUsuario;
+    private Double precioTotalReservaCOP;
+    private Double precioTotalReservaUS;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinRerserva;
     private LocalDateTime fechaCreacion;

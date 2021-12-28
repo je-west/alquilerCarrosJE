@@ -30,7 +30,7 @@ public class ServicioCrearVehiculoTest {
         // arrange
         Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(true);
         Mockito.when(repositorioVehiculo.crear(vehiculo)).thenReturn(10L);
         ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo);
         // act - assert
@@ -43,7 +43,7 @@ public class ServicioCrearVehiculoTest {
         // arrange
         Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioVehiculo.crear(vehiculo)).thenReturn(10L);
         ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo);
         // act
