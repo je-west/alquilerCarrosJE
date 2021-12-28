@@ -24,6 +24,9 @@ public class VehiculoTest {
         assertEquals(1, vehiculo.getId());
         assertEquals("ABC123", vehiculo.getPlaca());
         assertEquals("ABCMarca", vehiculo.getMarca());
+        assertEquals("ABCReferencia", vehiculo.getReferencia());
+        assertEquals(100000.00, vehiculo.getPrecioDia());
+        assertEquals("Disponible", vehiculo.getEstado());
         assertEquals(fechaCreacion, vehiculo.getFechaCreacion());
     }
 
