@@ -16,7 +16,7 @@ public class ComandoVehiculoTestDataBuilder {
     private LocalDateTime fechaCreacion;
 
     public ComandoVehiculoTestDataBuilder() {
-        placa = UUID.randomUUID().toString();
+        placa = UUID.randomUUID().toString().substring(0, 5);
         marca = UUID.randomUUID().toString();
         referencia = UUID.randomUUID().toString();;
         estado = UUID.randomUUID().toString();
