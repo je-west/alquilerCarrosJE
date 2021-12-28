@@ -19,7 +19,8 @@ public class ReservaTestDataBuilder {
         id = Long.parseLong("123456");
         idVehiculo = Long.parseLong("123456");
         idUsuario = Long.parseLong("123456");
-
+        precioTotalReservaCOP = 400000.00;
+        precioTotalReservaUS = 100.00;
         fechaInicioReserva = LocalDateTime.now();
         fechaFinRerserva = LocalDateTime.now();
         fechaCreacion = LocalDateTime.now();

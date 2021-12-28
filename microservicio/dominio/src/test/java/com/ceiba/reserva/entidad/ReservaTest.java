@@ -23,6 +23,8 @@ public class ReservaTest {
         assertEquals(1, reserva.getId());
         assertEquals(123456, reserva.getIdUsuario());
         assertEquals(123456, reserva.getIdVehiculo());
+        assertEquals(400000.00, reserva.getPrecioTotalReservaCOP());
+        assertEquals(100.00, reserva.getPrecioTotalReservaUS());
         assertNotNull(reserva.getFechaCreacion());
         assertNotNull(reserva.getFechaInicioReserva());
         assertNotNull(reserva.getFechaFinRerserva());
