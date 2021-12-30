@@ -26,7 +26,6 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
     @Override
     public Long crear(Vehiculo vehiculo) {
        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear);
-        //return Long.parseLong("123456");
     }
 
     @Override
@@ -43,7 +42,6 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
     public boolean existe(String placa) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("placa", placa);
-
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
     }
 

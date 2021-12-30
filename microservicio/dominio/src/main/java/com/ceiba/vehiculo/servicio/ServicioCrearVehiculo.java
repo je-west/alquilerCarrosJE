@@ -27,4 +27,12 @@ public class ServicioCrearVehiculo {
         }
     }
 
+
+    public void validarDisponibilidad(Vehiculo vehiculo) {
+        boolean existe = this.repositorioVehiculo.existe(vehiculo.getPlaca());
+        if(existe) {
+            throw new ExcepcionDuplicidad(EL_VEHICULO_YA_EXISTE_EN_EL_SISTEMA);
+        }
+    }
+
 }

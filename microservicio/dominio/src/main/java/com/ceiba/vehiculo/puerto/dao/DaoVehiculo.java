@@ -11,4 +11,10 @@ public interface DaoVehiculo {
      * @return los usuarios
      */
     List<DtoVehiculo> listar();
+
+    /**
+     * Permite consultar un vehiculo
+     * @return un vehiculo
+     */
+    List<DtoVehiculo>  consultarVehiculo(Long idVehiculo);
 }
