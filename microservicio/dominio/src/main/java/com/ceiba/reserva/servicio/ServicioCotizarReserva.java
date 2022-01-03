@@ -19,24 +19,23 @@ public class ServicioCotizarReserva {
     public ServicioCotizarReserva() {}
 
     public Double ejecutar(Double precio, LocalDateTime fechaInicio, LocalDateTime fechaFin){
-        this.fechaInicioReserva = LocalDateTime.of(fechaInicio.toLocalDate(), LocalTime.MIDNIGHT);
-        this.fechaFinReserva = LocalDateTime.of(fechaFin.toLocalDate(), LocalTime.MIDNIGHT);
+        fechaInicioReserva = LocalDateTime.of(fechaInicio.toLocalDate(), LocalTime.MIDNIGHT);
+        fechaFinReserva = LocalDateTime.of(fechaFin.toLocalDate(), LocalTime.MIDNIGHT);
 
         validacionFechaInicioMenorALaMayor();
-        Double precioTotalReserva= calcularPrecio(precio);
 
-        return precioTotalReserva;
+        return calcularPrecio(precio);
     }
 
     private void validacionFechaInicioMenorALaMayor(){
-        Boolean mayorFechaInicioFinal = this.fechaInicioReserva.isBefore(fechaFinReserva) || this.fechaInicioReserva.equals(fechaFinReserva);
+        Boolean mayorFechaInicioFinal = this.fechaInicioReserva.isBefore(fechaFinReserva) || fechaInicioReserva.equals(fechaFinReserva);
         if (!mayorFechaInicioFinal){
             throw new ExcepcionReserva(LA_FECHA_INICIO_ES_MAYOR_O_IGUAL_A_LA_FINAL);
         }
     }
 
     private double calcularPrecio(Double precio){
-        Map<String, Integer> dias=calcularDias(this.fechaInicioReserva, this.fechaFinReserva);
+        Map<String, Integer> dias=calcularDias(fechaInicioReserva, fechaFinReserva);
         Double precioTotalReserva= getPrecioTotalReserva(precio, dias.get("DiasFinDeSemana"), dias.get("DiasEnSemana"));
 
         return precioTotalReserva;
