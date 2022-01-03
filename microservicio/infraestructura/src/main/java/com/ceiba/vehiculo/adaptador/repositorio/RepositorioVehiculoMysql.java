@@ -15,7 +15,6 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
     @SqlStatement(namespace="vehiculo", value="crear")
     private static String sqlCrear;
 
-
     @SqlStatement(namespace="vehiculo", value="existe")
     private static String sqlExiste;
 
@@ -31,13 +30,9 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear);
     }
 
+
     @Override
     public void actualizar(Vehiculo vehiculo) {
-
-    }
-
-    @Override
-    public void eliminar(Long id) {
 
     }
 

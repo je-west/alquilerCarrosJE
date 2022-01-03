@@ -17,7 +17,6 @@ public class ServicioCrearVehiculo {
     public Long ejecutar(Vehiculo vehiculo) {
         validarExistenciaPrevia(vehiculo);
         return this.repositorioVehiculo.crear(vehiculo);
-
     }
 
     private void validarExistenciaPrevia(Vehiculo vehiculo) {
@@ -28,11 +27,5 @@ public class ServicioCrearVehiculo {
     }
 
 
-    public void validarDisponibilidad(Vehiculo vehiculo) {
-        boolean existe = this.repositorioVehiculo.existe(vehiculo.getPlaca());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_VEHICULO_YA_EXISTE_EN_EL_SISTEMA);
-        }
-    }
 
 }

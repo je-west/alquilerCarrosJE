@@ -32,9 +32,7 @@ public class ComandoControladorReservaTest {
     @Autowired
     private MockMvc mocMvc;
 
-
     @Test
-    @Disabled
     @DisplayName("Deberia crear una reserva")
     void deberiaCrearUnaReserva() throws Exception{
         // arrange

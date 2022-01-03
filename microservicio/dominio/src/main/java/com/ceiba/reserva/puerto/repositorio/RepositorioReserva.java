@@ -2,6 +2,8 @@ package com.ceiba.reserva.puerto.repositorio;
 
 import com.ceiba.reserva.modelo.entidad.Reserva;
 
+import java.time.LocalDateTime;
+
 public interface RepositorioReserva {
     /**
      * Permite crear una reserva
@@ -11,27 +13,10 @@ public interface RepositorioReserva {
     Long crear(Reserva reserva);
 
     /**
-     * Permite actualizar uns reserva
-     * @param reserva
-     */
-    void actualizar(Reserva reserva);
-
-    /**
-     * Permite eliminar uns reserva
-     * @param id
-     */
-    void eliminar(Long id);
-
-    /**
-     * Permite validar si existe uns reserva con un id
-     * @param id
+     * Permite validar si el vehiculo esta disponible para reservar entre dos fechas
+     * @param idVehiculo,
+     * @param fechaInicio
      * @return si existe o no
      */
-    boolean existe(Long id);
-
-    /**
-     * Permite validar si existe uns reserva con un nombre excluyendo un id
-     * @return si existe o no
-     */
-    boolean existePorId(Long id);
+    boolean disponibilidadVehiculo(Long idVehiculo, LocalDateTime fechaInicio);
 }

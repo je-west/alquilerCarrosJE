@@ -12,6 +12,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearReservaTest {
@@ -25,11 +27,10 @@ public class ServicioCrearReservaTest {
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
         RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
 
-        Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioReserva.disponibilidadVehiculo(Mockito.anyLong(), Mockito.any(LocalDateTime.class))).thenReturn(false);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioVehiculo.existePorId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(false);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
 
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, repositorioVehiculo, repositorioUsuario);
@@ -49,7 +50,7 @@ public class ServicioCrearReservaTest {
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
         RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
 
-        Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioReserva.disponibilidadVehiculo(Mockito.anyLong(), Mockito.any(LocalDateTime.class))).thenReturn(true);
         Mockito.when(repositorioVehiculo.existePorId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(true);
 
@@ -67,8 +68,9 @@ public class ServicioCrearReservaTest {
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
         RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
+        LocalDateTime fechaInicio = LocalDateTime.now();
 
-        Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioReserva.disponibilidadVehiculo(Mockito.anyLong(), Mockito.any(LocalDateTime.class))).thenReturn(false);
         Mockito.when(repositorioVehiculo.existePorId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(false);
 
@@ -87,7 +89,7 @@ public class ServicioCrearReservaTest {
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
         RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
 
-        Mockito.when(repositorioReserva.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioReserva.disponibilidadVehiculo(Mockito.anyLong(), Mockito.any(LocalDateTime.class))).thenReturn(false);
         Mockito.when(repositorioVehiculo.existePorId(Mockito.anyLong())).thenReturn(false);
         Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(true);
 

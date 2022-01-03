@@ -17,12 +17,6 @@ public interface RepositorioVehiculo {
     void actualizar(Vehiculo vehiculo);
 
     /**
-     * Permite eliminar un vehiculo
-     * @param id
-     */
-    void eliminar(Long id);
-
-    /**
      * Permite validar si existe un vehiculo con un nombre
      * @param placa
      * @return si existe o no

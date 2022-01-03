@@ -15,7 +15,7 @@ public class FabricaRerserva {
                 comandoReserva.getPrecioTotalReservaCOP(),
                 comandoReserva.getPrecioTotalReservaUS(),
                 comandoReserva.getFechaInicioReserva(),
-                comandoReserva.getFechaInicioReserva(),
+                comandoReserva.getFechaFinRerserva(),
                 comandoReserva.getFechaCreacion()
         );
 

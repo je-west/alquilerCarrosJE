@@ -3,6 +3,7 @@ package com.ceiba.vehiculo.servicio;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.VehiculoTestDataBuilder;
