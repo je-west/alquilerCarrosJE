@@ -50,7 +50,6 @@ public class ValidadorReserva {
     }
 
     public void validarExistenciaPreviaReserva(Long idVehiculo, LocalDateTime fechaInicioReserva) {
-        System.out.println("idVehiculo: "+idVehiculo+" - fechaInicioReserva: "+fechaInicioReserva);
         boolean existe = this.repositorioReserva.disponibilidadVehiculo(idVehiculo, fechaInicioReserva);
         if(existe) {
             throw new ExcepcionDuplicidad(LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA);
