@@ -30,7 +30,7 @@ public class ConsultaControladorVehiculoTest {
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia listar usuarios")
+    @DisplayName("Deberia listar vehiculos")
     void deberiaListarUsuarios() throws Exception {
         // arrange
         // act - assert

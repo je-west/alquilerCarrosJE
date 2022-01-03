@@ -48,7 +48,7 @@ public class ConsultaControladorReservaTest {
     }
 
     @Test
-    @DisplayName("Deberia listar reserva")
+    @DisplayName("Deberia cotizar una reserva")
     void deberiaCotizarReserva() throws Exception {
         // arrange
         ComandoReservaCotizacion cotizacion = new ComandoReservaCotizacionTestBuilder().build();
@@ -58,7 +58,6 @@ public class ConsultaControladorReservaTest {
                         .content(objectMapper.writeValueAsString(cotizacion)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 855000.0}"));
-
     }
 
 
