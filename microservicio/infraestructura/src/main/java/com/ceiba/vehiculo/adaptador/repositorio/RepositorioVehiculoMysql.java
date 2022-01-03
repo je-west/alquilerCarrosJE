@@ -32,11 +32,6 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
 
 
     @Override
-    public void actualizar(Vehiculo vehiculo) {
-
-    }
-
-    @Override
     public boolean existe(String placa) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("placa", placa);

@@ -11,12 +11,6 @@ public interface RepositorioVehiculo {
     Long crear(Vehiculo vehiculo);
 
     /**
-     * Permite actualizar un vehiculo
-     * @param vehiculo
-     */
-    void actualizar(Vehiculo vehiculo);
-
-    /**
      * Permite validar si existe un vehiculo con un nombre
      * @param placa
      * @return si existe o no
