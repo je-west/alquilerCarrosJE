@@ -1,7 +1,6 @@
 package com.ceiba.reserva.servicio;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionReserva;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,12 +25,12 @@ public class ServicioCotizarReservaTest {
         assertEquals(precio,resultadoEsperado);
     }
 
+
     @Test
-    @DisplayName("Deberia fallar al cotizar una reserva")
-    void deberiaFallarAlCotizarUnaReserva(){
-        Double resultadoEsperado= 855000.00;
+    @DisplayName("Deberia fallar al cotizar una reserva, fechas inicio y final iguales")
+    void deberiaFallarAlCotizarUnaReservaFechaInicioYFinIguales(){
         LocalDateTime fechaInicioReserva = LocalDateTime.of(2021, 12, 30, 00, 00);
-        LocalDateTime fechaFinReserva = LocalDateTime.of(2021, 12, 25, 00, 00);
+        LocalDateTime fechaFinReserva = LocalDateTime.of(2021, 12, 30, 00, 00);
 
         ServicioCotizarReserva servicioCotizarReserva = new ServicioCotizarReserva();
 
