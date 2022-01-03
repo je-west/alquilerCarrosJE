@@ -31,6 +31,7 @@ public interface RepositorioVehiculo {
 
     /**
      * Permite validar si existe un vehiculo con un nombre excluyendo un id
+     * @param id
      * @return si existe o no
      */
     boolean existePorId(Long id);

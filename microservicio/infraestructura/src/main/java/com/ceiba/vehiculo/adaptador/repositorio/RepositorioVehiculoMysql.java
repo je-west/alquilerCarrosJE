@@ -19,6 +19,9 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
     @SqlStatement(namespace="vehiculo", value="existe")
     private static String sqlExiste;
 
+    @SqlStatement(namespace="vehiculo", value="existeId")
+    private static String sqlExistePorId;
+
     public RepositorioVehiculoMysql (CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -47,6 +50,8 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo {
 
     @Override
     public boolean existePorId(Long id) {
-        return false;
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }
 }
