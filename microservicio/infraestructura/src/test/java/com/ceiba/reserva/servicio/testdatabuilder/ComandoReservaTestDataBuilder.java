@@ -25,10 +25,16 @@ public class ComandoReservaTestDataBuilder {
         this.fechaFinRerserva = LocalDateTime.now();;
     }
 
-    public ComandoReservaTestDataBuilder conIdVehiculo(){
+    public ComandoReservaTestDataBuilder conIdVehiculo(Long idVehiculo){
         this.idVehiculo = idVehiculo;
         return this;
     }
+
+    public ComandoReservaTestDataBuilder conIdUsuario(Long idUsuario){
+        this.idUsuario = idUsuario;
+        return this;
+    }
+
 
     public ComandoReserva build(){
         return new ComandoReserva(id, idVehiculo, idUsuario, precioTotalReservaCOP, precioTotalReservaUS,fechaInicioReserva, fechaFinRerserva, fechaCreacion);

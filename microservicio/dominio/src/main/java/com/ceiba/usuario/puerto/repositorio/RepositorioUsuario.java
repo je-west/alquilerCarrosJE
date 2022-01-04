@@ -11,18 +11,6 @@ public interface RepositorioUsuario {
     Long crear(Usuario usuario);
 
     /**
-     * Permite actualizar un usuario
-     * @param usuario
-     */
-    void actualizar(Usuario usuario);
-
-    /**
-     * Permite eliminar un usuario
-     * @param id
-     */
-    void eliminar(Long id);
-
-    /**
      * Permite validar si existe un usuario con un nombre
      * @param cedula
      * @return si existe o no

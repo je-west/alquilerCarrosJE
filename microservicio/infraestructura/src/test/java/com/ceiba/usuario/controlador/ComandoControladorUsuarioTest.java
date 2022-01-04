@@ -45,33 +45,15 @@ class ComandoControladorUsuarioTest {
     }
 
     @Test
-    @DisplayName("Deberia actualizar un usuario")
-    void deberiaActualizarUnUsuario() throws Exception{
+    @DisplayName("Deberia crear un usuario")
+    void deberiaFallarUsuarioYaExiste() throws Exception{
         // arrange
-        Long id = 1L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().conID(id).build();
+        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().conCedula("12345").build();
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @DisplayName("Deberia eliminar un usuario")
-    void deberiaEliminarUnUsuario() throws Exception {
-        // arrange
-        Long id = 2L;
-        // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-        mocMvc.perform(get("/usuarios")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));
+        mocMvc.perform(post("/usuarios")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(usuario)))
+                .andExpect(status().isBadRequest());
     }
 
 }

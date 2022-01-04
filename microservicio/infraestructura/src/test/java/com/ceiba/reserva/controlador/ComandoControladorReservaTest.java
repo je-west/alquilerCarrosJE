@@ -50,4 +50,30 @@ public class ComandoControladorReservaTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)));
     }
+
+    @Test
+    @DisplayName("Deberia fallar, el usuario no existe")
+    void deberiaFallarUsuarioNoExiste() throws Exception{
+        // arrange
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conIdUsuario(5L).build();
+        // act - assert
+        mocMvc.perform(post("/reserva")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(reserva)))
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    @DisplayName("Deberia fallar, el vehiculo no existe")
+    void deberiaFallarVehiculoNoExiste() throws Exception{
+        // arrange
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conIdVehiculo(3L).build();
+        // act - assert
+        mocMvc.perform(post("/reserva")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(reserva)))
+                .andExpect(status().isBadRequest());
+
+    }
 }

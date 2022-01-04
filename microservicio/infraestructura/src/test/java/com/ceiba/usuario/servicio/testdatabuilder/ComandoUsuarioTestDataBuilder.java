@@ -16,7 +16,7 @@ public class ComandoUsuarioTestDataBuilder {
     public ComandoUsuarioTestDataBuilder() {
         id = 1L;
         nombre = "Nombre";
-        cedula = UUID.randomUUID().toString().substring(0, 11);
+        cedula = "123456789";
         telefono = "12345";
         fecha = LocalDateTime.now();
     }
@@ -26,8 +26,8 @@ public class ComandoUsuarioTestDataBuilder {
         return this;
     }
 
-    public ComandoUsuarioTestDataBuilder conNombre(String nombre) {
-        this.nombre = nombre;
+    public ComandoUsuarioTestDataBuilder conCedula(String cedula) {
+        this.cedula = cedula;
         return this;
     }
 
