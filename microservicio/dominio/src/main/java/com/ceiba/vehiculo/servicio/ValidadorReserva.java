@@ -2,7 +2,6 @@ package com.ceiba.vehiculo.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionReserva;
-import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
@@ -34,15 +33,6 @@ public class ValidadorReserva {
     }
 
     public void validarExistenciaVehiculo(Long id){
-        boolean existe = this.repositorioVehiculo.existePorId(id);
-        if (!existe) {
-            throw new ExcepcionReserva(EL_VEHICULO_QUE_INTENTA_RESERVAR_NO_EXISTE_EN_EL_SISTEMA);
-        }else {
-
-        }
-    }
-
-    public void validarDisponibilidadVehiculo(Long id){
         boolean existe = this.repositorioVehiculo.existePorId(id);
         if (!existe) {
             throw new ExcepcionReserva(EL_VEHICULO_QUE_INTENTA_RESERVAR_NO_EXISTE_EN_EL_SISTEMA);

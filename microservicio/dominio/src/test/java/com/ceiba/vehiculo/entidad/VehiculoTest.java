@@ -63,6 +63,26 @@ public class VehiculoTest {
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
     }
 
+    @Test
+    void deberiaFallarSinReferenciaVehiculo() {
+        //Arrange
+        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conReferencia(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    vehiculoTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar la referencia del vehiculo");
+    }
 
+    @Test
+    void deberiaFallarSinPrecioDia() {
+        //Arrange
+        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder().conPrecioDia(null);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    vehiculoTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar el precio por dia del vehiculo");
+    }
 
 }

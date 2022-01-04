@@ -46,6 +46,6 @@ public class UsuarioTestDataBuilder {
     }
 
     public Usuario build() {
-        return new Usuario(id, nombreUsuario, cedula, telefono,fecha);
+        return new Usuario(nombreUsuario, cedula, telefono,fecha);
     }
 }

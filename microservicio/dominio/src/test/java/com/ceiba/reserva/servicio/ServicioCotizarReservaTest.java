@@ -37,5 +37,16 @@ public class ServicioCotizarReservaTest {
         BasePrueba.assertThrows(() -> servicioCotizarReserva.ejecutar(150000.00, fechaInicioReserva, fechaFinReserva), ExcepcionReserva.class,"La fecha de inicio es mayor o igual que la final");
     }
 
+    @Test
+    @DisplayName("Deberia fallar al cotizar una reserva, fechas inicio y final iguales")
+    void deberiaFallarAlCotizarUnaReserva(){
+        LocalDateTime fechaInicioReserva = LocalDateTime.of(2021, 12, 30, 00, 00);
+        LocalDateTime fechaFinReserva = LocalDateTime.of(2021, 12, 30, 00, 00);
+
+        ServicioCotizarReserva servicioCotizarReserva = new ServicioCotizarReserva();
+
+        BasePrueba.assertThrows(() -> servicioCotizarReserva.ejecutar(150000.00, fechaInicioReserva, fechaFinReserva), ExcepcionReserva.class,"La fecha de inicio es mayor o igual que la final");
+    }
+
 
 }

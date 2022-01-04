@@ -49,6 +49,16 @@ public class VehiculoTestDataBuilder {
         return this;
     }
 
+    public VehiculoTestDataBuilder conReferencia(String referencia){
+        this.referencia = referencia;
+        return this;
+    }
+
+    public VehiculoTestDataBuilder conPrecioDia(Double precioDia){
+        this.precioDia = precioDia;
+        return this;
+    }
+
     public Vehiculo build() {
         return new Vehiculo(id, placa, marca, referencia, estado, precioDia,fechaCreacion);
     }

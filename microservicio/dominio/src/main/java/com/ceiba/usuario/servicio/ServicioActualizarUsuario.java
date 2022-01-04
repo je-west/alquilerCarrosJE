@@ -15,14 +15,7 @@ public class ServicioActualizarUsuario {
     }
 
     public void ejecutar(Usuario usuario) {
-        validarExistenciaPrevia(usuario);
         this.repositorioUsuario.actualizar(usuario);
     }
 
-    private void validarExistenciaPrevia(Usuario usuario) {
-        boolean existe = this.repositorioUsuario.existePorId(usuario.getId());
-        if(!existe) {
-            throw new ExcepcionDuplicidad(EL_USUARIO_NO_EXISTE_EN_EL_SISTEMA);
-        }
-    }
 }

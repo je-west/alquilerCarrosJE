@@ -41,6 +41,7 @@ public class ComandoControladorUsuario {
 		manejadorEliminarUsuario.ejecutar(id);
 	}
 
+
 	@PutMapping(value="/{id}")
 	@ApiOperation("Actualizar Usuario")
 	public void actualizar(@RequestBody ComandoUsuario comandoUsuario, @PathVariable Long id) {

@@ -17,19 +17,17 @@ public class Usuario {
 
     private static final int LONGITUD_MAXIMA_CEDULA = 12;
 
-    private Long id;
     private String nombre;
     private String cedula;
     private String telefono;
     private LocalDateTime fechaCreacion;
 
-    public Usuario(Long id, String nombre, String cedula, String telefono, LocalDateTime fechaCreacion) {
+    public Usuario(String nombre, String cedula, String telefono, LocalDateTime fechaCreacion) {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA);
         validarLongitudMaxima(cedula, LONGITUD_MAXIMA_CEDULA, String.format(LA_CEDULA_DEBE_TENER_UNA_LONGITUD_MAXIMA, LONGITUD_MAXIMA_CEDULA));
         validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION);
 
-        this.id = id;
         this.nombre = nombre;
         this.cedula = cedula;
         this.telefono = telefono;
