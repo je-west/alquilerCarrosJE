@@ -35,6 +35,11 @@ public class ComandoReservaTestDataBuilder {
         return this;
     }
 
+    public ComandoReservaTestDataBuilder conFechaInicio(LocalDateTime fechaInicioReserva){
+        this.fechaInicioReserva = fechaInicioReserva;
+        return this;
+    }
+
 
     public ComandoReserva build(){
         return new ComandoReserva(id, idVehiculo, idUsuario, precioTotalReservaCOP, precioTotalReservaUS,fechaInicioReserva, fechaFinRerserva, fechaCreacion);

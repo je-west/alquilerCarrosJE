@@ -16,6 +16,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -69,6 +71,19 @@ public class ComandoControladorReservaTest {
     void deberiaFallarVehiculoNoExiste() throws Exception{
         // arrange
         ComandoReserva reserva = new ComandoReservaTestDataBuilder().conIdVehiculo(3L).build();
+        // act - assert
+        mocMvc.perform(post("/reserva")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(reserva)))
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    @DisplayName("Deberia fallar el vehiculo no esta disponible para la fechas")
+    void deberiaFallarVehiculoNoDisponible() throws Exception{
+        // arrange
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conFechaInicio(LocalDateTime.now().plusDays(-10)).build();
         // act - assert
         mocMvc.perform(post("/reserva")
                         .contentType(MediaType.APPLICATION_JSON)

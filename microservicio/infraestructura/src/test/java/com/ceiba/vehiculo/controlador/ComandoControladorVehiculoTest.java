@@ -49,4 +49,16 @@ public class ComandoControladorVehiculoTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)));
     }
+
+    @Test
+    @DisplayName("Deberia fallar el vehiculo ya existe")
+    void deberiaFallarElVehiculoYaExiste() throws Exception{
+        // arrange
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conPlaca("abc123").build();
+        // act - assert
+        mocMvc.perform(post("/vehiculo")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(vehiculo)))
+                .andExpect(status().isBadRequest());
+    }
 }
