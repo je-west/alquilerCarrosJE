@@ -44,7 +44,7 @@ public class ComandoControladorVehiculoTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
 
-        mocMvc.perform(get("/vehiculos")
+        mocMvc.perform(get("/vehiculo")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)));

@@ -2,6 +2,7 @@ package com.ceiba.reserva.servicio.testdatabuilder;
 
 import com.ceiba.reserva.comando.ComandoReserva;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ComandoReservaTestDataBuilder {
@@ -11,8 +12,8 @@ public class ComandoReservaTestDataBuilder {
     private Long idUsuario;
     private Double precioTotalReservaCOP;
     private Double precioTotalReservaUS;
-    private LocalDateTime fechaInicioReserva;
-    private LocalDateTime fechaFinRerserva;
+    private LocalDate fechaInicioReserva;
+    private LocalDate fechaFinRerserva;
     private LocalDateTime fechaCreacion;
 
     public ComandoReservaTestDataBuilder() {
@@ -21,8 +22,8 @@ public class ComandoReservaTestDataBuilder {
         this.idUsuario = Long.parseLong("1");
         this.precioTotalReservaCOP = 400000.00;
         this.precioTotalReservaUS = 200.00;
-        this.fechaInicioReserva = LocalDateTime.now();;
-        this.fechaFinRerserva = LocalDateTime.now();;
+        this.fechaInicioReserva = LocalDate.now();;
+        this.fechaFinRerserva = LocalDate.now();;
     }
 
     public ComandoReservaTestDataBuilder conIdVehiculo(Long idVehiculo){
@@ -35,7 +36,7 @@ public class ComandoReservaTestDataBuilder {
         return this;
     }
 
-    public ComandoReservaTestDataBuilder conFechaInicio(LocalDateTime fechaInicioReserva){
+    public ComandoReservaTestDataBuilder conFechaInicio(LocalDate fechaInicioReserva){
         this.fechaInicioReserva = fechaInicioReserva;
         return this;
     }

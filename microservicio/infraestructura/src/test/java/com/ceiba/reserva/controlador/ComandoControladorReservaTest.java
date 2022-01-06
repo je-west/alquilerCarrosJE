@@ -2,6 +2,8 @@ package com.ceiba.reserva.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.reserva.comando.ComandoReserva;
+import com.ceiba.reserva.comando.ComandoReservaCotizacion;
+import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaCotizacionTestBuilder;
 import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -83,7 +85,7 @@ public class ComandoControladorReservaTest {
     @DisplayName("Deberia fallar el vehiculo no esta disponible para la fechas")
     void deberiaFallarVehiculoNoDisponible() throws Exception{
         // arrange
-        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conFechaInicio(LocalDateTime.now().plusDays(-10)).build();
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conFechaInicio(LocalDate.now().plusDays(-10)).build();
         // act - assert
         mocMvc.perform(post("/reserva")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -91,4 +93,18 @@ public class ComandoControladorReservaTest {
                 .andExpect(status().isBadRequest());
 
     }
+
+    @Test
+    @DisplayName("Deberia cotizar una reserva")
+    void deberiaCotizarReserva() throws Exception {
+        // arrange
+        ComandoReservaCotizacion cotizacion = new ComandoReservaCotizacionTestBuilder().build();
+        // act - assert
+        mocMvc.perform(post("/reserva/cotizar")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(cotizacion)))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'valor': 855000.0}"));
+    }
+
 }

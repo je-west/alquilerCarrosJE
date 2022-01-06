@@ -14,7 +14,7 @@ public class DtoReserva {
     private Double precioTotalReservaCOP;
     private Double precioTotalReservaUS;
     private LocalDateTime fechaInicioReserva;
-    private LocalDateTime fechaFinRerserva;
+    private LocalDateTime fechaFinReserva;
     private LocalDateTime fechaCreacion;
 }
 

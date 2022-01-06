@@ -46,19 +46,4 @@ public class ConsultaControladorReservaTest {
                 .andExpect(jsonPath("$[0].idUsuario", is(1)));
 
     }
-
-    @Test
-    @DisplayName("Deberia cotizar una reserva")
-    void deberiaCotizarReserva() throws Exception {
-        // arrange
-        ComandoReservaCotizacion cotizacion = new ComandoReservaCotizacionTestBuilder().build();
-        // act - assert
-        mocMvc.perform(get("/reserva/cotizar")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(cotizacion)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 855000.0}"));
-    }
-
-
 }

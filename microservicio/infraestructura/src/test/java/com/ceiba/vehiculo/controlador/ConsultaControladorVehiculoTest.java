@@ -34,7 +34,7 @@ public class ConsultaControladorVehiculoTest {
     void deberiaListarUsuarios() throws Exception {
         // arrange
         // act - assert
-        mocMvc.perform(get("/vehiculos")
+        mocMvc.perform(get("/vehiculo")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))

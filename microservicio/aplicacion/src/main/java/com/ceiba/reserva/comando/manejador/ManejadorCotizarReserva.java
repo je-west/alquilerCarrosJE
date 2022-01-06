@@ -25,7 +25,7 @@ public class ManejadorCotizarReserva implements ManejadorComandoRespuesta<Comand
     @Override
     public ComandoRespuesta<Double> ejecutar(ComandoReservaCotizacion comando) {
         final Double precio = consultarTarifaVehiculo(comando.getIdVehiculo());
-        return new ComandoRespuesta<>(this.servicioCotizarReserva.ejecutar(precio, comando.getFechaInicioReserva(), comando.getFechaFinRerserva()));
+        return new ComandoRespuesta<>(this.servicioCotizarReserva.ejecutar(precio, comando.getFechaInicioReserva().atStartOfDay(), comando.getFechaFinReserva().atStartOfDay()));
     }
 
     private Double consultarTarifaVehiculo(Long idVehiculo){

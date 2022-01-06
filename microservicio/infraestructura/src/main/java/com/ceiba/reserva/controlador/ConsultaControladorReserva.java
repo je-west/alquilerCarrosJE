@@ -30,14 +30,6 @@ public class ConsultaControladorReserva {
         return this.manejadorListarReserva.ejecutar();
     }
 
-
-    @GetMapping(value="/cotizar")
-    @ApiOperation("Cotizar reserva")
-    public ComandoRespuesta<Double> cotizarReserva(@RequestBody ComandoReservaCotizacion comandoReservaCotizacion) {
-        return this.manejadorCotizarReserva.ejecutar(comandoReservaCotizacion);
-    }
-
-
 }
 
 
