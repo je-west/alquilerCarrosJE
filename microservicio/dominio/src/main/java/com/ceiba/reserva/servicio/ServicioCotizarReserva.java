@@ -29,7 +29,6 @@ public class ServicioCotizarReserva {
         Boolean mayorFechaInicioFinal = !fechaInicioReserva.isBefore(fechaFinReserva);
         Boolean fechasIguales = fechaInicioReserva.equals(fechaFinReserva);
         if (mayorFechaInicioFinal || fechasIguales){
-            System.out.println("Error");
             throw new ExcepcionReserva(LA_FECHA_INICIO_ES_MAYOR_O_IGUAL_A_LA_FINAL);
         }
     }
