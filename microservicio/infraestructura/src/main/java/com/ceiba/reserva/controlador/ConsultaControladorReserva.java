@@ -17,11 +17,9 @@ import java.util.List;
 public class ConsultaControladorReserva {
 
     private final ManejadorListarReserva manejadorListarReserva;
-    private final ManejadorCotizarReserva manejadorCotizarReserva;
 
-    public ConsultaControladorReserva(ManejadorListarReserva manejadorListarReserva, ManejadorCotizarReserva manejadorCotizarReserva) {
+    public ConsultaControladorReserva(ManejadorListarReserva manejadorListarReserva) {
         this.manejadorListarReserva = manejadorListarReserva;
-        this.manejadorCotizarReserva = manejadorCotizarReserva;
     }
 
     @GetMapping
