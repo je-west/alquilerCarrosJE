@@ -3,6 +3,7 @@ package com.ceiba.configuracion;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.ServicioCotizarReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
+import com.ceiba.reserva.servicio.ServicioEliminarReserva;
 import com.ceiba.trm.puerto.repositorio.RepositorioTrm;
 import com.ceiba.trm.servicio.ServicioConsultarTrm;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
@@ -40,5 +41,8 @@ public class BeanServicio {
         return new ServicioConsultarTrm(repositorioTrm);
     }
 
-
+    @Bean
+    public ServicioEliminarReserva servicioEliminarReserva(RepositorioReserva repositorioReserva) {
+        return new ServicioEliminarReserva(repositorioReserva);
+    }
 }
