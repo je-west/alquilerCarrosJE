@@ -6,7 +6,6 @@ import com.ceiba.reserva.comando.ComandoReservaCotizacion;
 import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaCotizacionTestBuilder;
 import com.ceiba.reserva.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,8 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
@@ -105,6 +103,23 @@ public class ComandoControladorReservaTest {
                         .content(objectMapper.writeValueAsString(cotizacion)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 855000.0}"));
+    }
+
+    @Test
+    @DisplayName("Deberia elminar una reserva")
+    void deberiaEliminarReserva() throws Exception {
+        // arrange
+
+        // act - assert
+        mocMvc.perform(delete("/reserva?id=1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        mocMvc.perform(get("/reserva")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+
     }
 
 }
