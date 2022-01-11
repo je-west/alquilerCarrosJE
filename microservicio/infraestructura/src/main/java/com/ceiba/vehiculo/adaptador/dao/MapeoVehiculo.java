@@ -18,7 +18,7 @@ public class MapeoVehiculo  implements RowMapper<DtoVehiculo>, MapperResult {
         String marca = resultSet.getString("marca");
         String referencia = resultSet.getString("referencia");
         String estado = resultSet.getString("estado");
-        Double precioDia =  resultSet.getDouble("precioDia");;
+        Double precioDia =  resultSet.getDouble("precioDia");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
 
         return new DtoVehiculo(id, placa, marca, referencia, estado, precioDia,fecha);
